@@ -240,6 +240,24 @@ function betMaxClicked(event) {
 }
 
 function betOneClicked(event) {
+    //trying
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+
+    ctx.font = "20px Georgia";
+    ctx.fillText("Hello World!", 10, 50);
+
+    ctx.font = "30px Verdana";
+
+    // create gradient
+    var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+    gradient.addColorStop(0, "magenta");
+    gradient.addColorStop(0.5, "blue");
+    gradient.addColorStop(1.0, "red");
+
+    // fill with gradient
+    ctx.fillStyle = gradient;
+    ctx.fillText("Big smile!", 54, 282);
 }
 
 function powerClicked(event) {
@@ -278,7 +296,7 @@ function createUI() {
     // Bet One Button
     betOneButton = new Button("assets/images/betOneButton.png", 171, 339);
     game.addChild(betOneButton.getImage());
-    betOneButton.getImage().addEventListener("click", spinButtonClicked);
+    betOneButton.getImage().addEventListener("click", betOneClicked);
 
     // Reset Button
     resetButton = new Button("assets/images/resetButton.png", 27, 342);
