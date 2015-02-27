@@ -267,12 +267,13 @@ function determineWinnings() {
 }
 
 
-// MAIN MEAT of my code goes here 
+// MAIN CODE  
 function spinButtonClicked(event: createjs.MouseEvent) {
 
     spinResult = Reels();
     fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
 
+    
     // Iterate over the number of reels
     for (var index = 0; index < NUM_REELS; index++) {
         reelContainers[index].removeAllChildren();
@@ -281,6 +282,29 @@ function spinButtonClicked(event: createjs.MouseEvent) {
     }
 }
 
+function betMaxClicked(event: createjs.MouseEvent) {
+
+    
+    
+}
+
+function betOneClicked(event: createjs.MouseEvent) {
+
+
+
+}
+
+function powerClicked(event: createjs.MouseEvent) {
+
+
+
+}
+
+function resetClicked(event: createjs.MouseEvent) {
+
+
+
+}
 
 function createUI() {
 

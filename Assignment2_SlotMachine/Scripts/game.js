@@ -236,6 +236,18 @@ function spinButtonClicked(event) {
     }
 }
 
+function betMaxClicked(event) {
+}
+
+function betOneClicked(event) {
+}
+
+function powerClicked(event) {
+}
+
+function resetClicked(event) {
+}
+
 function createUI() {
     background = new createjs.Bitmap("assets/images/background.png");
     game.addChild(background); // Add the background to the game container
