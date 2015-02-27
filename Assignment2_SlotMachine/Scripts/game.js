@@ -224,7 +224,7 @@ function determineWinnings() {
     }
 }
 
-// MAIN MEAT of my code goes here
+// MAIN CODE
 function spinButtonClicked(event) {
     spinResult = Reels();
     fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
