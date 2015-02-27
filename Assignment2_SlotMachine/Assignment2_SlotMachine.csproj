@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\spinButton.png" />
     <Content Include="Scripts\app.js.map" />
     <Content Include="Scripts\game.js.map" />
     <Content Include="Scripts\objects\Button.js.map" />
@@ -82,7 +83,6 @@
     <Content Include="assets\images\orange.png" />
     <Content Include="assets\images\resetButton.png" />
     <Content Include="assets\images\seven.png" />
-    <Content Include="assets\images\spinButton.png" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\app.js" />

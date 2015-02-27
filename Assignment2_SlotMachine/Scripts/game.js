@@ -191,7 +191,7 @@ function createUI() {
     game.addChild(background);
 
     // Spin Button
-    spinButton = new objects.Button("assets/images/spinButton.png", 323, 376);
+    spinButton = new objects.Button("assets/images/spinButton.png", 300, 340);
     game.addChild(spinButton.getImage());
 
     spinButton.getImage().addEventListener("click", spinReels);
