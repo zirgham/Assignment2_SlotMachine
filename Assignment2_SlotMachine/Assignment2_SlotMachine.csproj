@@ -59,7 +59,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\candy.png" />
+    <Content Include="assets\images\lolli.png" />
+    <Content Include="assets\images\powerButton.png" />
     <Content Include="assets\images\spinButton.png" />
+    <Content Include="assets\images\stick.png" />
+    <Content Include="assets\images\toffee.png" />
+    <Content Include="assets\images\toffee1.png" />
+    <Content Include="assets\images\toffee2.png" />
+    <Content Include="assets\images\toffee3.png" />
+    <Content Include="assets\images\toffee4.png" />
     <Content Include="Scripts\app.js.map" />
     <Content Include="Scripts\game.js.map" />
     <Content Include="Scripts\objects\Button.js.map" />
@@ -72,17 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\background.png" />
-    <Content Include="assets\images\banana.png" />
-    <Content Include="assets\images\bar.png" />
-    <Content Include="assets\images\bell.png" />
     <Content Include="assets\images\betMaxButton.png" />
     <Content Include="assets\images\betOneButton.png" />
-    <Content Include="assets\images\blank.png" />
-    <Content Include="assets\images\cherry.png" />
-    <Content Include="assets\images\grapes.png" />
-    <Content Include="assets\images\orange.png" />
     <Content Include="assets\images\resetButton.png" />
-    <Content Include="assets\images\seven.png" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\app.js" />
