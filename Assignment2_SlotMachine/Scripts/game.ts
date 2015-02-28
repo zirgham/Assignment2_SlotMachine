@@ -1,4 +1,4 @@
-﻿// CreateJS Boilerplate for COMP397
+﻿// written by ZIRGHAM MOHD #300801676
 
 
 class Button {
@@ -70,12 +70,19 @@ var playerMoney = 1000;
 var winnings = 0;
 var jackpot = 5000;
 var turn = 0;
-var playerBet = 0;
+var playerBet = 10;
 var winNumber = 0;
 var lossNumber = 0;
 var spinResult;
 var fruits = "";
 var winRatio = 0;
+var checkPower = true;
+var winningText = new createjs.Text("0", "23px play", "#000000");
+var pointsWonText = new createjs.Text("0", "23px play", "#000000");
+var scoreText = new createjs.Text("000000", "23px play", "#000000");
+var jackpotText = new createjs.Text("Good Luck", "48px jiggler", "#000000");
+var onOffText = new createjs.Text("", "37px play", "#000000");
+
 
 /* Tally Variables */
 var candy = 0;
@@ -140,10 +147,34 @@ function resetAll() {
     winnings = 0;
     jackpot = 5000;
     turn = 0;
-    playerBet = 0;
+    playerBet = 10;
     winNumber = 0;
     lossNumber = 0;
     winRatio = 0;
+ 
+
+    game.removeChild(scoreText);
+    game.removeChild(pointsWonText);
+    game.removeChild(winningText);
+    game.removeChild(jackpotText);
+
+
+    scoreText = new createjs.Text(playerMoney.toString(), "23px play", "#FFFFFF");
+    scoreText.x = 84;
+    scoreText.y = 258;
+    game.addChild(scoreText);
+    console.log(winNumber.toString());
+
+    winningText = new createjs.Text(playerBet.toString(), "23px play", "#FFFFFF");
+    winningText.x = 195;
+    winningText.y = 258;
+    game.addChild(winningText);
+
+    pointsWonText = new createjs.Text(winnings.toString(), "23px play", "#FFFFFF");
+    pointsWonText.x = 270;
+    pointsWonText.y = 258;
+    game.addChild(pointsWonText);
+
 }
 
 
@@ -203,58 +234,89 @@ function Reels() {
     }
     return betLine;
 }
-
+function Jackpot()
+{
+    jackpotText = new createjs.Text("***JACKPOT*** ", "48px jiggler", "red");
+    jackpotText.x = 48;
+    jackpotText.y = 42;
+    game.addChild(jackpotText);
+}
 /* This function calculates the player's winnings, if any */
 function determineWinnings() {
     if (toffee4 == 0) {
         if (candy == 3) {
+            Jackpot();
             winnings = playerBet * 10;
+            playerMoney = playerMoney + (3 * playerBet);
+
+
         }
         else if (lolli == 3) {
+            Jackpot();
             winnings = playerBet * 20;
+            playerMoney = playerMoney + (3 * playerBet);
         }
         else if (stick == 3) {
+            Jackpot();
             winnings = playerBet * 30;
+            playerMoney = playerMoney + (3 * playerBet);
         }
         else if (toffee == 3) {
+            Jackpot();
             winnings = playerBet * 40;
+            playerMoney = playerMoney + (3 * playerBet);
         }
         else if (toffee1 == 3) {
+            Jackpot();
             winnings = playerBet * 50;
+            playerMoney = playerMoney + (3 * playerBet);
         }
         else if (toffee2 == 3) {
+            Jackpot();
             winnings = playerBet * 75;
+            playerMoney = playerMoney + (3 * playerBet);
         }
         else if (toffee3 == 3) {
+            Jackpot();
             winnings = playerBet * 100;
+            playerMoney = playerMoney + (3 * playerBet);
         }
         else if (candy == 2) {
             winnings = playerBet * 2;
+            playerMoney = playerMoney + (2 * playerBet);
         }
         else if (lolli == 2) {
             winnings = playerBet * 2;
+            playerMoney = playerMoney + (2 * playerBet);
         }
         else if (stick == 2) {
             winnings = playerBet * 3;
+            playerMoney = playerMoney + (2 * playerBet);
         }
         else if (toffee == 2) {
             winnings = playerBet * 4;
+            playerMoney = playerMoney + (2 * playerBet);
         }
         else if (toffee1 == 2) {
             winnings = playerBet * 5;
+            playerMoney = playerMoney + (2 * playerBet);
         }
         else if (toffee2 == 2) {
             winnings = playerBet * 10;
+            playerMoney = playerMoney + (2 * playerBet);
         }
         else if (toffee3 == 2) {
             winnings = playerBet * 20;
+            playerMoney = playerMoney + (2 * playerBet);
         }
         else {
             winnings = playerBet * 1;
+            playerMoney = playerMoney + playerBet;
         }
 
         if (toffee3 == 1) {
             winnings = playerBet * 5;
+            playerMoney = playerMoney + playerBet;
         }
         winNumber++;
 
@@ -270,11 +332,66 @@ function determineWinnings() {
 
 // MAIN CODE  
 function spinButtonClicked(event: createjs.MouseEvent) {
-
+    resetFruitTally();
     spinResult = Reels();
-    fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
+    determineWinnings();
+    game.removeChild(scoreText);
+    game.removeChild(pointsWonText);
+    game.removeChild(winningText);
+    game.removeChild(jackpotText);
 
-    
+
+    scoreText = new createjs.Text(playerMoney.toString(), "23px play", "#FFFFFF");
+    scoreText.x = 84;
+    scoreText.y = 258;
+    game.addChild(scoreText);
+    console.log(winNumber.toString());
+
+    winningText = new createjs.Text(playerBet.toString(), "23px play", "#FFFFFF");
+    winningText.x = 195;
+    winningText.y = 258;
+    game.addChild(winningText);
+
+    pointsWonText = new createjs.Text(winnings.toString(), "23px play", "#FFFFFF");
+    pointsWonText.x = 270;
+    pointsWonText.y = 258;
+    game.addChild(pointsWonText);
+
+
+    if (candy == 2) {
+        console.log("Jackpot");
+        jackpotText = new createjs.Text("****JACKPOT**** ", "48px jiggler", "red");
+        jackpotText.x = 54;
+        jackpotText.y = 42;
+        game.addChild(jackpotText);
+
+    }
+    else if (winnings == 0) {
+        jackpotText = new createjs.Text("Snap! Hard luck ", "48px jiggler", "red");
+        jackpotText.x = 54;    
+        jackpotText.y = 42;
+        game.addChild(jackpotText);
+
+
+    } else {
+        jackpotText = new createjs.Text("Woo! You won", "38px jiggler", "red");
+        jackpotText.x = 54;
+        jackpotText.y = 45;
+        game.addChild(jackpotText);
+
+    }
+
+    //winnings = 0;
+    playerMoney = playerMoney - playerBet ;
+    toffee4 = 0;
+
+    if (playerMoney < 0) {
+        jackpotText = new createjs.Text("Game Over !", "38px jiggler", "red");
+        jackpotText.x = 54;
+        jackpotText.y = 45;
+        game.addChild(jackpotText);
+        console.log("Game Over");
+    }
     // Iterate over the number of reels
     for (var index = 0; index < NUM_REELS; index++) {
         reelContainers[index].removeAllChildren();
@@ -286,34 +403,18 @@ function spinButtonClicked(event: createjs.MouseEvent) {
 
 function betMaxClicked(event: createjs.MouseEvent) {
 
-    
+    playerBet = 20;
     
 }
 
 function betOneClicked(event: createjs.MouseEvent) {
-    //trying
-    var c = <HTMLCanvasElement>document.getElementById("canvas");
-    var ctx = c.getContext("2d");
-
-    ctx.font = "20px Georgia";
-    ctx.fillText("Hello World!", 10, 50);
-
-    ctx.font = "30px Verdana";
-    // create gradient
-    var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
-    gradient.addColorStop(0, "magenta");
-    gradient.addColorStop(0.5, "blue");
-    gradient.addColorStop(1.0, "red");
-    // fill with gradient
-    ctx.fillStyle = gradient;
-    ctx.fillText("Big smile!", 54, 282); 
-
+    playerBet = 5;
 
 }
 
 function powerClicked(event: createjs.MouseEvent) {
 
-
+    createUI();
 
 }
 
@@ -352,24 +453,24 @@ function createUI() {
     // Bet Max Button
     betMaxButton = new Button("assets/images/betMaxButton.png", 237, 339);
     game.addChild(betMaxButton.getImage());
-    betMaxButton.getImage().addEventListener("click", spinButtonClicked);
+    betMaxButton.getImage().addEventListener("click", betMaxClicked);
 
 
     // Bet One Button
     betOneButton = new Button("assets/images/betOneButton.png", 171, 339);
-    game.addChild(betOneButton.getImage());
+       game.addChild(betOneButton.getImage());
     betOneButton.getImage().addEventListener("click", betOneClicked);
 
 
     // Reset Button
     resetButton = new Button("assets/images/resetButton.png", 27, 342);
     game.addChild(resetButton.getImage());
-    resetButton.getImage().addEventListener("click", spinButtonClicked);
+    resetButton.getImage().addEventListener("click", resetAll);
 
     // Power Button
     powerButton = new Button("assets/images/powerButton.png", 108, 339);
     game.addChild(powerButton.getImage());
-    powerButton.getImage().addEventListener("click", spinButtonClicked);
+    powerButton.getImage().addEventListener("click", powerClicked);
 
 }
 
