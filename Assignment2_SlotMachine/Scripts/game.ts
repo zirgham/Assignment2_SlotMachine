@@ -360,24 +360,24 @@ function spinButtonClicked(event: createjs.MouseEvent) {
 
     if (candy == 2) {
         console.log("Jackpot");
-        jackpotText = new createjs.Text("****JACKPOT**** ", "48px jiggler", "red");
+       /* jackpotText = new createjs.Text("****JACKPOT**** ", "48px jiggler", "red");
         jackpotText.x = 54;
         jackpotText.y = 42;
-        game.addChild(jackpotText);
+        game.addChild(jackpotText);*/
 
     }
     else if (winnings == 0) {
-        jackpotText = new createjs.Text("Snap! Hard luck ", "48px jiggler", "red");
+      /*  jackpotText = new createjs.Text("Snap! Hard luck ", "48px jiggler", "red");
         jackpotText.x = 54;    
         jackpotText.y = 42;
-        game.addChild(jackpotText);
+        game.addChild(jackpotText);*/
 
 
-    } else {
+    } else {/*
         jackpotText = new createjs.Text("Woo! You won", "38px jiggler", "red");
         jackpotText.x = 54;
         jackpotText.y = 45;
-        game.addChild(jackpotText);
+        game.addChild(jackpotText);*/
 
     }
 
